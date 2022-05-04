@@ -13,12 +13,8 @@ class CategoryItem extends StatelessWidget {
   final String title;
   final Color color;
 
-  void selectCategory(BuildContext context) =>
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (_) => CategoryMealsScreen(
-                categoryId: id,
-                categoryTitle: title,
-              )));
+  void selectCategory(BuildContext context) => Navigator.of(context)
+      .pushNamed('/category-meals', arguments: {'id': id, "title": title});
 
   @override
   Widget build(BuildContext context) {
