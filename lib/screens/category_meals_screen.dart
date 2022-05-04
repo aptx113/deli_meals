@@ -1,5 +1,8 @@
 import 'package:deli_meals/dummy_data.dart';
+import 'package:deli_meals/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
+
+import '../models/meal.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
   const CategoryMealsScreen({
@@ -21,10 +24,19 @@ class CategoryMealsScreen extends StatelessWidget {
         .toList();
 
     return Scaffold(
-        appBar: AppBar(title: Text(categoryTitle)),
-        body: ListView.builder(
-          itemBuilder: (context, index) => Text(categoryMeals[index].title),
-          itemCount: categoryMeals.length,
-        ));
+      appBar: AppBar(title: Text(categoryTitle)),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          final Meal meal = categoryMeals[index];
+          return MealItem(
+              title: meal.title,
+              imageUrl: meal.imageUrl,
+              duration: meal.duration,
+              complexity: meal.complexity,
+              affordability: meal.affordability);
+        },
+        itemCount: categoryMeals.length,
+      ),
+    );
   }
 }
