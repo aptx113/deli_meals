@@ -1,3 +1,4 @@
+import 'package:deli_meals/screens/meal_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../models/meal.dart';
@@ -5,25 +6,29 @@ import '../models/meal.dart';
 class MealItem extends StatelessWidget {
   const MealItem({
     Key? key,
-    required this.title,
-    required this.imageUrl,
-    required this.duration,
-    required this.complexity,
+    required this.id,
     required this.affordability,
+    required this.complexity,
+    required this.duration,
+    required this.imageUrl,
+    required this.title,
   }) : super(key: key);
 
+  final String id;
   final Affordability affordability;
   final Complexity complexity;
   final int duration;
   final String imageUrl;
   final String title;
 
-  void selectMeal() {}
+  void selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: id);
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectMeal,
+      onTap: () => selectMeal(context),
       child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),

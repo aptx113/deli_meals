@@ -1,8 +1,8 @@
-import 'package:deli_meals/dummy_data.dart';
-import 'package:deli_meals/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
+import '../dummy_data.dart';
 import '../models/meal.dart';
+import '../widgets/meal_item.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
   const CategoryMealsScreen({
@@ -29,6 +29,7 @@ class CategoryMealsScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final Meal meal = categoryMeals[index];
           return MealItem(
+              id: meal.id,
               title: meal.title,
               imageUrl: meal.imageUrl,
               duration: meal.duration,
