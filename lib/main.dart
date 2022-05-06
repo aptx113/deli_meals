@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../screens/categories_screen.dart';
 import '../screens/category_meals_screen.dart';
 import '../screens/meal_detail_screen.dart';
+import '../screens/tabs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,12 +31,13 @@ class MyApp extends StatelessWidget {
           colorScheme: theme.colorScheme.copyWith(secondary: Colors.amber)),
       initialRoute: '/',
       routes: {
-        '/': (context) => CategoriesScreen(),
+        '/': (context) => TabsScreen(),
         CategoryMealsScreen.routeName: (context) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (context) => MealDetailScreen(),
       },
       onGenerateRoute: (settings) {
         print(settings.arguments);
+        return null;
       },
       onUnknownRoute: (settings) =>
           MaterialPageRoute(builder: ((context) => CategoriesScreen())),
