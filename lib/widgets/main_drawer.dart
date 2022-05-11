@@ -1,3 +1,4 @@
+import 'package:deli_meals/screens/category_meals_screen.dart';
 import 'package:deli_meals/screens/filters_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,7 @@ class MainDrawer extends StatelessWidget {
             height: 20,
           ),
           _buildListTile(Icons.restaurant, 'Meals', () {
-            Navigator.of(context).pushReplacementNamed('./');
+            Navigator.of(context).pushReplacementNamed('/');
           }),
           _buildListTile(Icons.settings, 'Filters', () {
             Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
