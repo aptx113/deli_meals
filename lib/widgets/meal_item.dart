@@ -12,7 +12,6 @@ class MealItem extends StatelessWidget {
     required this.duration,
     required this.imageUrl,
     required this.title,
-    required this.removeItem,
   }) : super(key: key);
 
   final String id;
@@ -21,14 +20,13 @@ class MealItem extends StatelessWidget {
   final int duration;
   final String imageUrl;
   final String title;
-  final Function removeItem;
 
   void selectMeal(BuildContext context) {
     Navigator.of(context)
         .pushNamed(MealDetailScreen.routeName, arguments: id)
         .then((result) {
       if (result != null) {
-        removeItem(result);
+        // removeItem(result);
       }
     });
   }
